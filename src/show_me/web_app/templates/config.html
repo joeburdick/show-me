@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <h1>Configuration:</h1>
+
+    <form>
+        <form>
+            <label for="cfg_scale">cfg_scale:</label>
+            <input type="number" id="cfg_scale" name="cfg_scale" value="{{ stabilityConfig.cfg_scale }}"><br><br>
+
+            <label for="steps">steps:</label>
+            <input type="number" id="steps" name="steps" value="{{ stabilityConfig.steps }}"><br><br>
+
+            <label for="seed">seed:</label>
+            <input type="number" id="seed" name="seed" value="{{ stabilityConfig.seed }}"><br><br>
+
+            <label for="sampler">sampler:</label>
+            <input type="text" id="sampler" name="sampler" value="{{ stabilityConfig.sampler }}"><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+        
+    </form>
+</body>
+
+</html>
