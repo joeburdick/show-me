@@ -11,11 +11,15 @@ class StabilityConfig():
     def to_json(self):
         return json.dumps(self.__dict__)
     
-def get_stability_config() -> StabilityConfig:
+def get_stability_config(configPath: str) -> StabilityConfig:
     # Mapping of string representations to types
-    with open('/etc/show_me/config/stability_config.json') as f:
+    with open(configPath) as f:
         config = json.load(f)
 
     config['sampler']: generation.SamplerParameters[config['sampler']]
 
     return StabilityConfig(**config)
+
+def save_stability_config(configPath: str, config: StabilityConfig):
+    with open(configPath, 'w') as f:
+        json.dump(config.__dict__, f)
