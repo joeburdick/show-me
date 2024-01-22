@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <h1>Generate:</h1>
+
+    <form method="POST">
+        <form>
+            <label for="prompt">Prompt:</label>
+            <input type="text" id="prompt" name="prompt" value="{{ prompt }}" placeholder="Enter prompt"><br><br>
+
+            <label for="width">Width:</label>
+            <input type="number" id="width" name="width" value="{{ width }}" placeholder="Enter width"><br><br>
+
+            <label for="height">Height:</label>
+            <input type="number" id="height" name="height" value="{{ height }}" placeholder="Enter height"><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+        
+        {% if image %}
+            <img src="{{ image }}" alt="Generated image" />
+        {% endif %}
+    </form>
+</body>
+
+</html>

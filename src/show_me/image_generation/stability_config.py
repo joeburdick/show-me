@@ -2,7 +2,7 @@ import json
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 
 class StabilityConfig():
-    def __init__(self, steps, seed, cfg_scale, sampler: generation.SamplerParameters):
+    def __init__(self, steps, seed, cfg_scale, sampler: generation.DiffusionSampler):
         self.steps = steps
         self.seed = seed
         self.cfg_scale = cfg_scale
@@ -16,7 +16,13 @@ def get_stability_config(configPath: str) -> StabilityConfig:
     with open(configPath) as f:
         config = json.load(f)
 
-    config['sampler']: generation.SamplerParameters[config['sampler']]
+    # set sampler to enum matching string value
+    config["sampler"] = generation.DiffusionSampler.Value(config["sampler"])
+
+    # convert number values
+    config["steps"] = int(config["steps"])
+    config["seed"] = int(config["seed"])
+    config["cfg_scale"] = float(config["cfg_scale"])
 
     return StabilityConfig(**config)
 
