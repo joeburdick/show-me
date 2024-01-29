@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "show_me"
+version = "0.0.1"
+authors = [
+  { name="Joe Burdick", email="joseph.a.burdick@gmail.com" },
+]
+description = "A tool for taking voice prompts to generate AI images and display them on an E Ink display with a Raspberry Pi."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/joeburdick/show-me"
+Issues = "https://github.com/joeburdick/show-me/issues"
