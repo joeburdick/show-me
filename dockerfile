@@ -8,7 +8,7 @@ WORKDIR /app
 # Copy the entire dist directory contents into the container at /app
 COPY dist/ /app
 
-RUN pip install --prefer-binary --no-cache-dir /app/*.tar.gz
+RUN pip install --extra-index-url https://www.piwheels.org/simple --prefer-binary --no-cache-dir /app/*.tar.gz
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
