@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from show_me.image_generation.stability_config import *
 from show_me.image_generation.image_generate import *
+from show_me.inky_display.image_display import *
 import base64
 from io import BytesIO
 
@@ -26,10 +27,11 @@ def config():
 def generate():
     if request.method == 'POST':
         prompt = request.form['prompt']
-        width = request.form['width']
-        height = request.form['height']
+        width = int(request.form['width'])
+        height = int(request.form['height'])
         config = get_stability_config(configPath)
-        image = generate_image(config, prompt, 512, 512)
+        image = generate_image(config, prompt, width, height)
+        display_prompt(prompt)
         return render_template('generate.html', image=image_to_data_url(image), prompt=prompt, width=width, height=height)
     
     return render_template('generate.html', image=None)
