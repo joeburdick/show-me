@@ -10,7 +10,7 @@ COPY config /app/
 
 RUN pip install --verbose --extra-index-url https://www.piwheels.org/simple --only-binary=:all: --no-cache-dir /app/*.tar.gz
 RUN apt update
-RUN apt -y install python3-numpy
+RUN apt install libopenblas-dev -y
 
 # Make port 80 available to the world outside this container
 EXPOSE 80

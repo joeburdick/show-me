@@ -19,7 +19,8 @@ classifiers = [
 dependencies = [
   "flask",
   "stability-sdk",
-  "inky"
+  "inky",
+  "RPi.GPIO"
 ]
 
 [project.urls]
