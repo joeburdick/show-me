@@ -27,12 +27,12 @@ def config():
 def generate():
     if request.method == 'POST':
         prompt = request.form['prompt']
-        width = int(request.form['width'])
-        height = int(request.form['height'])
+
         config = get_stability_config(configPath)
-        image = generate_image(config, prompt, width, height)
-        display_prompt(prompt)
-        return render_template('generate.html', image=image_to_data_url(image), prompt=prompt, width=width, height=height)
+        dimensions = get_display_dimensions()
+        image = generate_image(config, prompt, dimensions[0], dimensions[1])
+        display_image(image)
+        return render_template('generate.html', image=image_to_data_url(image), prompt=prompt)
     
     return render_template('generate.html', image=None)
 

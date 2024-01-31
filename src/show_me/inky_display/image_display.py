@@ -4,6 +4,15 @@ from inky.auto import auto
 
 configPath = 'config/stability_config.json'
 
+def get_display_dimensions():
+    display = auto()
+    return [display.width, display.height]
+
+def display_image(image):
+    display = auto()
+    display.set_image(image)
+    display.show()
+
 def display_prompt(prompt: str):
     display = auto()
     # display = InkyMockImpression()
