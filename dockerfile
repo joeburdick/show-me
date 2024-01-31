@@ -9,6 +9,9 @@ COPY dist/ /app
 COPY config /app/
 
 RUN pip install --verbose --extra-index-url https://www.piwheels.org/simple --only-binary=:all: --no-cache-dir /app/*.tar.gz
+RUN pip uninstall numpy -y
+RUN apt-get update
+RUN apt-get -y install python3-numpy
 
 # Make port 80 available to the world outside this container
 EXPOSE 80

@@ -1,7 +1,6 @@
 from show_me.image_generation.image_generate import generate_image
 from show_me.image_generation.stability_config import get_stability_config
 from inky.auto import auto
-from inky.mock import InkyMockImpression
 
 configPath = 'config/stability_config.json'
 
