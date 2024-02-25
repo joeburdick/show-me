@@ -8,7 +8,7 @@ COPY dist/ /app
 COPY config/ /app/config
 COPY start_script.sh /app
 
-RUN apt update
+RUN apt-get update
 RUN apt-get -y install python3-rpi.gpio python3-pyaudio portaudio19-dev 
 RUN pip install --verbose --extra-index-url https://www.piwheels.org/simple --prefer-binary --no-cache-dir /app/*.tar.gz
 
