@@ -19,8 +19,10 @@ classifiers = [
 dependencies = [
   "flask",
   "stability-sdk",
-  "inky",
-  "RPi.GPIO"
+  "smbus2",
+  "inky>=1.5.0",
+  "openai",
+  "pyaudio"
 ]
 
 [project.urls]
