@@ -22,7 +22,8 @@ dependencies = [
   "smbus2",
   "inky>=1.5.0",
   "openai",
-  "pyaudio"
+  "pyaudio",
+  "RPi.GPIO"
 ]
 
 [project.urls]
